@@ -22,6 +22,11 @@ form {
   color: var(--gray-300);
   border-radius: 0.5rem;
 }
+
+.wrapper input:focus {
+  color: var(--gray-100);
+}
+
 .wrapper button {
   width: 5.625rem;
   height: 3.25rem;
@@ -31,8 +36,12 @@ form {
   color: var(--gray-100);
   font-weight: 700;
   font-size: 0.875rem;
-
   display: flex;
   align-items: center;
   justify-content: space-between;
+  cursor: pointer;
+}
+
+.wrapper button:hover {
+  background-color: var(--blue);
 }
