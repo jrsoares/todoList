@@ -1,37 +1,16 @@
 import styles from './Tasks.module.css';
 import { RiDeleteBin6Line } from 'react-icons/ri';
-import { v4 as uuidv4 } from 'uuid';
 
-const tasks = [
-  {
-    id: uuidv4(),
-    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit',
-  },
-  {
-    id: uuidv4(),
-    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit',
-  },
-  {
-    id: uuidv4(),
-    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit',
-  },
-  {
-    id: uuidv4(),
-    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit',
-  },
-  {
-    id: uuidv4(),
-    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit',
-  },
-  {
-    id: uuidv4(),
-    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit',
-  },
-];
+interface Task {
+  id: string;
+  description: string;
+}
 
-const deleteTask = () => {};
+interface TaskProps {
+  data: Task[];
+}
 
-export function Tasks() {
+export function Tasks({ data }: TaskProps) {
   return (
     <div className={styles.wrapper}>
       <div className={styles.info}>
@@ -43,7 +22,7 @@ export function Tasks() {
         </p>
       </div>
 
-      {tasks.map((task) => {
+      {data.map((task) => {
         return (
           <div className={styles.listTasks} key={task.id}>
             <div className={styles.tasks}>
