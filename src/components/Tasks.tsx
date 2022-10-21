@@ -1,5 +1,6 @@
 import styles from './Tasks.module.css';
 import { RiDeleteBin6Line } from 'react-icons/ri';
+import { useState } from 'react';
 
 interface Task {
   id: string;
@@ -11,6 +12,15 @@ interface TaskProps {
 }
 
 export function Tasks({ data }: TaskProps) {
+  const [tasks, setTasks] = useState(data);
+
+  function deleteTask(TaskId: string) {
+    const tasksDeleted = tasks.filter((task) => {
+      return task.id !== TaskId;
+    });
+    setTasks(tasksDeleted);
+  }
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.info}>
@@ -22,7 +32,7 @@ export function Tasks({ data }: TaskProps) {
         </p>
       </div>
 
-      {data.map((task) => {
+      {tasks.map((task) => {
         return (
           <div className={styles.listTasks} key={task.id}>
             <div className={styles.tasks}>
@@ -33,7 +43,12 @@ export function Tasks({ data }: TaskProps) {
                 id=""
               />
               <p className={styles.taskDescription}>{task.description}</p>
-              <a className={styles.taskDelete} href="#">
+              <a
+                className={styles.taskDelete}
+                onClick={() => {
+                  deleteTask(task.id);
+                }}
+              >
                 <RiDeleteBin6Line />
               </a>
             </div>
