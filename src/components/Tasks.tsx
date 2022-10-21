@@ -1,5 +1,35 @@
 import styles from './Tasks.module.css';
 import { RiDeleteBin6Line } from 'react-icons/ri';
+import { v4 as uuidv4 } from 'uuid';
+
+const tasks = [
+  {
+    id: uuidv4(),
+    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit',
+  },
+  {
+    id: uuidv4(),
+    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit',
+  },
+  {
+    id: uuidv4(),
+    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit',
+  },
+  {
+    id: uuidv4(),
+    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit',
+  },
+  {
+    id: uuidv4(),
+    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit',
+  },
+  {
+    id: uuidv4(),
+    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit',
+  },
+];
+
+const deleteTask = () => {};
 
 export function Tasks() {
   return (
@@ -12,30 +42,25 @@ export function Tasks() {
           Tarefas concluídas <small>2 de 5</small>
         </p>
       </div>
-      <div className={styles.listTasks}>
-        <div className={styles.tasks}>
-          <input className={styles.taskCheck} type="checkbox" name="" id="" />
-          <p className={styles.taskDescription}>
-            Integer urna interdum massa libero auctor neque turpis turpis
-            semper. Duis vel sed fames integer.
-          </p>
-          <a className={styles.taskDelete} href="#">
-            <RiDeleteBin6Line />
-          </a>
-        </div>
-      </div>
-      <div className={styles.listTasks}>
-        <div className={styles.tasks}>
-          <input className={styles.taskCheck} type="checkbox" name="" id="" />
-          <p className={styles.taskDescriptionDone}>
-            Integer urna interdum massa libero auctor neque turpis turpis
-            semper. Duis vel sed fames integer.
-          </p>
-          <a className={styles.taskDelete} href="#">
-            <RiDeleteBin6Line />
-          </a>
-        </div>
-      </div>
+
+      {tasks.map((task) => {
+        return (
+          <div className={styles.listTasks} key={task.id}>
+            <div className={styles.tasks}>
+              <input
+                className={styles.taskCheck}
+                type="checkbox"
+                name=""
+                id=""
+              />
+              <p className={styles.taskDescription}>{task.description}</p>
+              <a className={styles.taskDelete} href="#">
+                <RiDeleteBin6Line />
+              </a>
+            </div>
+          </div>
+        );
+      })}
     </div>
   );
 }
