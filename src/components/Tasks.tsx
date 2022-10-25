@@ -1,13 +1,15 @@
 import styles from "./Tasks.module.css";
 import { ChangeEvent, FormEvent, useState } from "react";
 import { TaskListItems } from "./TaskListItems";
+import { NewTaskForm } from "./NewTaskForm";
 
 interface PropsTasks {
   todos: Todo[];
   toogleTodo: ToogleTodo;
+  addTodo: AddTodo;
 }
 
-export function Tasks({ todos, toogleTodo }: PropsTasks) {
+export function Tasks({ todos, toogleTodo, addTodo }: PropsTasks) {
   // const [tasks, setTasks] = useState([]);
   // const [task, setTask] = useState({});
   //
@@ -30,6 +32,7 @@ export function Tasks({ todos, toogleTodo }: PropsTasks) {
 
   return (
     <>
+      <NewTaskForm addTodo={addTodo} />
       <div className={styles.wrapper}>
         <div className={styles.info}>
           <p className={styles.taskCount}>

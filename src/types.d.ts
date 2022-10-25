@@ -5,3 +5,4 @@ interface Todo {
 }
 
 type ToogleTodo = (selectTodo: Todo) => void;
+type AddTodo = (description: string) => void;

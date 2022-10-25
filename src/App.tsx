@@ -3,7 +3,7 @@ import { Header } from "./components/Header";
 import { Tasks } from "./components/Tasks";
 import "./global.css";
 import { v4 as uuidv4 } from "uuid";
-import { TaskListItems } from "./components/TaskListItems";
+import { NewTaskForm } from "./components/NewTaskForm";
 
 const initialTodos: Todo[] = [
   {
@@ -54,10 +54,19 @@ function App() {
     setTasks(newTodoList);
   };
 
+  const addTodo: AddTodo = (description: string) => {
+    const newTodo = {
+      id: uuidv4(),
+      complete: false,
+      description,
+    };
+    setTasks([...tasks, newTodo]);
+  };
+
   return (
     <>
       <Header />
-      <Tasks todos={tasks} toogleTodo={toogleTodo} />
+      <Tasks todos={tasks} toogleTodo={toogleTodo} addTodo={addTodo} />
     </>
   );
 }

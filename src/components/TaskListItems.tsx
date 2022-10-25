@@ -11,7 +11,7 @@ export function TaskListItems({ todo, toogleTodo }: PropsListTodo) {
       <div className={styles.tasks}>
         <input
           className={styles.taskCheck}
-          checked={todo.complete}
+          defaultChecked={todo.complete}
           type="checkbox"
           onClick={() => {
             toogleTodo(todo);
