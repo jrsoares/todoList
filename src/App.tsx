@@ -63,10 +63,22 @@ function App() {
     setTasks([...tasks, newTodo]);
   };
 
+  const deleteTodo: DeleteTodo = (id: string) => {
+    const newTodosWichDeleted = tasks.filter((task) => {
+      return task.id !== id;
+    });
+    setTasks(newTodosWichDeleted);
+  };
+
   return (
     <>
       <Header />
-      <Tasks todos={tasks} toogleTodo={toogleTodo} addTodo={addTodo} />
+      <Tasks
+        todos={tasks}
+        toogleTodo={toogleTodo}
+        addTodo={addTodo}
+        deleteTodo={deleteTodo}
+      />
     </>
   );
 }

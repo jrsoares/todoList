@@ -7,9 +7,10 @@ interface PropsTasks {
   todos: Todo[];
   toogleTodo: ToogleTodo;
   addTodo: AddTodo;
+  deleteTodo: DeleteTodo;
 }
 
-export function Tasks({ todos, toogleTodo, addTodo }: PropsTasks) {
+export function Tasks({ todos, toogleTodo, addTodo, deleteTodo }: PropsTasks) {
   // const [tasks, setTasks] = useState([]);
   // const [task, setTask] = useState({});
   //
@@ -43,7 +44,12 @@ export function Tasks({ todos, toogleTodo, addTodo }: PropsTasks) {
           </p>
         </div>
         {todos.map((task) => (
-          <TaskListItems key={task.id} todo={task} toogleTodo={toogleTodo} />
+          <TaskListItems
+            key={task.id}
+            todo={task}
+            toogleTodo={toogleTodo}
+            deleteTodo={deleteTodo}
+          />
         ))}
       </div>
     </>
