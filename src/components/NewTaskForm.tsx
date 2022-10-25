@@ -1,10 +1,10 @@
-import styles from './NewTask.module.css';
-import { IoIosAddCircleOutline } from 'react-icons/io';
+import styles from "./NewTaskForm.module.css";
+import { IoIosAddCircleOutline } from "react-icons/io";
 
-export function NewTask() {
+export function NewTaskForm() {
   return (
     <form>
-      <div className={styles.wrapper}>
+      <div className={styles.FormWrapper}>
         <input
           type="text"
           name=""
