@@ -11,25 +11,9 @@ interface PropsTasks {
 }
 
 export function Tasks({ todos, toogleTodo, addTodo, deleteTodo }: PropsTasks) {
-  // const [tasks, setTasks] = useState([]);
-  // const [task, setTask] = useState({});
-  //
-  // function handleInputTask(event: ChangeEvent<HTMLInputElement>) {
-  //   const inputTask = event.target.value;
-  //   setTask(inputTask);
-  // }
-  //
-  // function handleSubmitTask(event: FormEvent) {
-  //   event.preventDefault();
-  //   // setTasks(prevState => return ([...prevState, task])
-  // }
-
-  // function deleteTask(TaskId: string) {
-  //   const tasksDeleted = tasks.filter((task) => {
-  //     return task.id !== TaskId;
-  //   });
-  //   setTasks(tasksDeleted);
-  // }
+  const CounterCompleted = todos.filter((todo) => {
+    return todo.complete !== false;
+  });
 
   return (
     <>
@@ -37,10 +21,13 @@ export function Tasks({ todos, toogleTodo, addTodo, deleteTodo }: PropsTasks) {
       <div className={styles.wrapper}>
         <div className={styles.info}>
           <p className={styles.taskCount}>
-            Tarefas criadas <small>5</small>
+            Tarefas criadas <small>{todos.length}</small>
           </p>
           <p className={styles.taskDone}>
-            Tarefas concluídas <small>2 de 5</small>
+            Tarefas concluídas{" "}
+            <small>
+              {CounterCompleted.length} de {todos.length}
+            </small>
           </p>
         </div>
         {todos.map((task) => (
